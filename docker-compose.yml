@@ -1,0 +1,20 @@
+version: '2'
+services:
+  wpdb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: thisisthepassword
+    volumes:
+      - ./mysql:/var/lib/mysql
+  wp:
+    build: .
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: wpdb
+      WORDPRESS_DB_PASSWORD: thisisthepassword
+    volumes:
+      - ./plot-studio-theme:/var/www/html/wp-content/themes/plot-studio-theme
+    links:
+      - wpdb:mysql
+
