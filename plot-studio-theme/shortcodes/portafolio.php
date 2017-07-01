@@ -2,7 +2,14 @@
 
 function ps_portafolio_sc( $atts ) {
 	$at = shortcode_atts([], $atts);
-	$props = ['name' => 'aleli'];
+	$query = new Wp_Query(array(
+    'post_type' => 'portfolio',
+		'posts_per_page' => -1,
+		'post_status' => 'publish'
+  ));
+	
+	$items = $query->get_posts();
+	$props = ['name' => 'aleli', 'items' => $items];
 	$component = react_render( 'Portafolio', $props  );
 
 	ob_start();

@@ -7,8 +7,8 @@ function create_post_type() {
   register_post_type( 'portfolio',
     [
       'labels' => [
-        'name' => 'portfolio',
-        'singular_name' => 'portfolio'
+        'name' => 'Portfolio',
+        'singular_name' => 'Portfolio'
 			],
 			'supports' => [ 'title', 'editor', 'excerpt', 'thumbnail', 'revisions','page_image_square'],
 			'taxonomies' => [ 'category'],

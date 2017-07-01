@@ -7903,7 +7903,14 @@ var Portafolio = function (_Component) {
 					"a",
 					{ href: "#", onClick: this.handleClick },
 					this.props.name
-				)
+				),
+				this.props.items.map(function (item) {
+					return _react2.default.createElement(
+						"li",
+						null,
+						item.post_title
+					);
+				})
 			);
 		}
 	}]);

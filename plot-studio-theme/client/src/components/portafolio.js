@@ -9,6 +9,9 @@ class Portafolio extends Component {
 		return (
 			<div>
 				<a href="#" onClick={this.handleClick}>{this.props.name}</a>
+				{this.props.items.map(item => 
+					<li>{item.post_title}</li>	
+				)}
 			</div>
 		)
 	}
