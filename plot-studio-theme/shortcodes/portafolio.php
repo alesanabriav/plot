@@ -9,9 +9,9 @@ function ps_portafolio_sc( $atts ) {
   ));
 	
 	$items = array_map(function($item) {
-
-		$item->post_thumbnail = get_the_post_thumbnail_url($item->ID);
-		$item->post_image = get_the_post_thumbnail_url($item->ID, 'full');
+		$attachment_id = get_post_thumbnail_id($item->ID);
+		$item->post_thumbnail = wp_get_attachment_image_src($attachment_id, 'thumbnail');
+		$item->post_image = wp_get_attachment_image_src($attachment_id, 'full');
 
 		return $item;
 	}, $query->get_posts());

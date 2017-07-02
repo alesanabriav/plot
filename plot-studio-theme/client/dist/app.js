@@ -22501,7 +22501,10 @@ var Portafolio = function (_Component) {
 							null,
 							item.post_title
 						),
-						_react2.default.createElement('img', { src: item.post_thumbnail, style: { width: '100%' } }),
+						_react2.default.createElement('img', {
+							'data-src': item.post_thumbnail,
+							'data-srcset': item.post_thumbnail + ' 600w, ' + item.post_image + ' 1200w',
+							className: 'lazyload blur-up', style: { width: '100%' } }),
 						_react2.default.createElement(
 							'p',
 							null,

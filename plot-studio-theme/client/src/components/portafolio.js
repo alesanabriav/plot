@@ -23,7 +23,10 @@ class Portafolio extends Component {
 				{this.props.items.map(item => 
 					<div className="portfolio-item grid-item col-lg-4" key={item.ID}>
 						<h1>{item.post_title}</h1>
-						<img src={item.post_thumbnail} style={{width: '100%'}}/>
+						<img 
+							data-src={item.post_thumbnail}
+							data-srcset={`${item.post_thumbnail} 600w, ${item.post_image} 1200w`}
+							className="lazyload blur-up" style={{width: '100%'}}/>
 						<p>{item.post_excerpt}</p>
 					</div>	
 				)}
