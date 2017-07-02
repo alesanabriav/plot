@@ -6,6 +6,7 @@ function react_render( $componentName = '', $props = [] ) {
 	$propsJson = json_encode($props);
 	$react = file_get_contents($clientFolder.'/node_modules/react/dist/react.js');
 	$reactDOM = file_get_contents($clientFolder.'/node_modules/react-dom/dist/react-dom-server.js');
+	$vendor =  file_get_contents($clientFolder.'/dist/vendor_me.js');
 	$bundle =  file_get_contents($clientFolder.'/dist/bundle.js');
 	$component = 'ReactDOMServer.renderToString(React.createElement( '. $componentName .', ' . $propsJson . '))';
 

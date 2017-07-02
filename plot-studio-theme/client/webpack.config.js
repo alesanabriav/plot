@@ -1,7 +1,14 @@
 const Path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: {
+		vendor: [
+			'react',
+			'react-dom',
+			'react-multiple-render',
+			'masonry-layout'
+    ],
 		bundle: './src/index.js',
 		app: './src/app.js'
 	},
@@ -19,6 +26,14 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+		plugins: [
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js', 
+        minChunks: Infinity,
+				minSize: Infinity
+      })
+    ]
 };
 
