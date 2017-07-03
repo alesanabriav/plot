@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import emitter from 'tiny-emitter/instance';
+
 
 class Portafolio extends Component {
 
@@ -28,23 +28,23 @@ class Portafolio extends Component {
 	stopVideo() {
 		console.log('stop video');
 	}
-	
+
 	render() {
 		return (
 			<div>
 				<button onClick={this.filterItems.bind(null, '*')}>all</button>
 				<button onClick={this.filterItems.bind(null, '.animation')}>animation</button>
 				<button onClick={this.filterItems.bind(null, '.production')}>production</button>
-			
-			<div className="grid">
-				
-				{this.props.items.map(item => 
-						<div 
-							onMouseEnter={this.playVideo} 
+
+				<div className="grid">
+
+				{this.props.items.map(item =>
+						<div
+							onMouseEnter={this.playVideo}
 							onMouseLeave={this.stopVideo}
 							className={`${item.post_categories.map(cat => cat.cat_name).join(' ')} portfolio-item grid-item col-lg-4`} key={item.ID}>
 						<h1>{item.post_title}</h1>
-						<img 
+						<img
 							data-src={item.post_thumbnail}
 							data-srcset={`${item.post_thumbnail} 600w, ${item.post_image} 1200w`}
 							className="lazyload blur-up" style={{width: '100%'}}
@@ -53,7 +53,7 @@ class Portafolio extends Component {
 							<source src=${item.post_video_thumbnail} type="video/mp4" />
 						</video>
 						<p>{item.post_excerpt}</p>
-					</div>	
+					</div>
 				)}
 			</div>
 			</div>
