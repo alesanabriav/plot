@@ -32,11 +32,31 @@
 	lazyloaded {
 		opacity: 1;
 	}
-		
+
 	.grid-item {
-		min-height: 100px;
+		min-height: 300px;
+	}
+
+	.portfolio-item__container {
+		position: relative;
+	}
+
+	.portfolio-item__media {
+		position: relative;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.portfolio-item__media img {
+		position: absolute;
+		top: 0;
+		left: 0
+	}
+
+	.portfolio-item__media video {
+		position: absolute;
+		top: 0;
+		left: 0
 	}
 	</style>
 </head>
 <body>
-

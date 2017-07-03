@@ -1,6 +1,5 @@
 <?php
 
-include_once str_replace('metaboxes', '', __DIR__) . '/lib/update_field.php';
 
 function bs_page_image_square_cb($post) {
     wp_nonce_field('ps_video_thumb_meta', 'ps_video_thumb_nonce');
@@ -45,13 +44,15 @@ const section = () => {
 };
 
 section();
+
+
 </script>
 <?php
 } //end bs_page_image_square_cb
 
 
 function ps_save_video_thumb_meta($post_id) {
-  update_field(array(
+  update_meta_field(array(
     'field_key' => 'video_thumb_key',
     'field_name' => 'video_thumb',
     'post_id' => $post_id
