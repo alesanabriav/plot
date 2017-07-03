@@ -21,6 +21,7 @@ class PortfolioItem extends Component {
     if(this.video) {
       this.setState({play: false});
       this.video.pause();
+      this.video.load();
     }
   }
 

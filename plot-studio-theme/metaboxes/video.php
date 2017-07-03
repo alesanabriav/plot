@@ -3,7 +3,8 @@
 
 function bs_page_image_square_cb($post) {
     wp_nonce_field('ps_video_thumb_meta', 'ps_video_thumb_nonce');
-    $value = get_post_meta($post->ID, 'video_thumb_key', true);
+    $video_thumb = get_post_meta($post->ID, 'video_thumb_key', true);
+    $client_name = get_post_meta($post->ID, 'client_name_key', true);
 ?>
 
 <div>
@@ -13,7 +14,17 @@ function bs_page_image_square_cb($post) {
 			class="uploader"
 			name="video_thumb"
 			placeholder="Video Thumb"
-			value="<?php echo $value ?>"
+			value="<?php echo $video_thumb ?>"
+			style="height: 35px; width: 100%;"
+		/>
+	</p>
+
+  <p>
+		<input
+			type="text"
+			name="client_name"
+			placeholder="Client Name"
+			value="<?php echo $client_name ?>"
 			style="height: 35px; width: 100%;"
 		/>
 	</p>
@@ -55,6 +66,12 @@ function ps_save_video_thumb_meta($post_id) {
   update_meta_field(array(
     'field_key' => 'video_thumb_key',
     'field_name' => 'video_thumb',
+    'post_id' => $post_id
+  ));
+
+  update_meta_field(array(
+    'field_key' => 'client_name_key',
+    'field_name' => 'client_name',
     'post_id' => $post_id
   ));
 }
