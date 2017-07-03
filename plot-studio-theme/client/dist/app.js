@@ -22471,7 +22471,9 @@ var Portafolio = function (_Component) {
 			args[_key] = arguments[_key];
 		}
 
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portafolio.__proto__ || Object.getPrototypeOf(Portafolio)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (e) {
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portafolio.__proto__ || Object.getPrototypeOf(Portafolio)).call.apply(_ref, [this].concat(args))), _this), _this.filterItems = function (category) {
+			_this.iso.arrange({ filter: '' + category });
+		}, _this.handleClick = function (e) {
 			e.preventDefault();
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
@@ -22480,28 +22482,58 @@ var Portafolio = function (_Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			var elem = document.querySelector('.grid');
-			var iso = new Isotope(elem, {
-				// options
+			this.iso = new Isotope(elem, {
+				isJQueryFiltering: false,
 				itemSelector: '.grid-item',
 				layoutMode: 'fitRows'
 			});
+			this.iso.layout();
+		}
+	}, {
+		key: 'playVideo',
+		value: function playVideo() {
+			console.log('playvideo');
+		}
+	}, {
+		key: 'stopVideo',
+		value: function stopVideo() {
+			console.log('stop video');
 		}
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			return _react2.default.createElement(
 				'div',
-				{ className: 'grid' },
-				this.props.items.map(function (item) {
-					_react2.default.createElement(
-						'div',
-						null,
-						item.post_categories.map(function (cat) {
-							return cat.cat_name;
-						}),
-						_react2.default.createElement(
+				null,
+				_react2.default.createElement(
+					'button',
+					{ onClick: this.filterItems.bind(null, '*') },
+					'all'
+				),
+				_react2.default.createElement(
+					'button',
+					{ onClick: this.filterItems.bind(null, '.animation') },
+					'animation'
+				),
+				_react2.default.createElement(
+					'button',
+					{ onClick: this.filterItems.bind(null, '.production') },
+					'production'
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'grid' },
+					this.props.items.map(function (item) {
+						return _react2.default.createElement(
 							'div',
-							{ className: 'portfolio-item grid-item col-lg-4', key: item.ID },
+							{
+								onMouseEnter: _this2.playVideo,
+								onMouseLeave: _this2.stopVideo,
+								className: item.post_categories.map(function (cat) {
+									return cat.cat_name;
+								}).join(' ') + ' portfolio-item grid-item col-lg-4', key: item.ID },
 							_react2.default.createElement(
 								'h1',
 								null,
@@ -22510,15 +22542,16 @@ var Portafolio = function (_Component) {
 							_react2.default.createElement('img', {
 								'data-src': item.post_thumbnail,
 								'data-srcset': item.post_thumbnail + ' 600w, ' + item.post_image + ' 1200w',
-								className: 'lazyload blur-up', style: { width: '100%' } }),
+								className: 'lazyload blur-up', style: { width: '100%' }
+							}),
 							_react2.default.createElement(
 								'p',
 								null,
 								item.post_excerpt
 							)
-						)
-					);
-				})
+						);
+					})
+				)
 			);
 		}
 	}]);

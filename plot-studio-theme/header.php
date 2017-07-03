@@ -13,7 +13,7 @@
 			color: #fff;
 		}
 
-		.blur-up {
+	.blur-up {
 		-webkit-filter: blur(5px);
 		filter: blur(5px);
 		transition: filter 400ms, -webkit-filter 400ms;
@@ -28,11 +28,14 @@
 		opacity: 0;
 		transition: opacity 400ms;
 	}
-	
+
 	lazyloaded {
 		opacity: 1;
 	}
 		
+	.grid-item {
+		min-height: 100px;
+	}
 	</style>
 </head>
 <body>
