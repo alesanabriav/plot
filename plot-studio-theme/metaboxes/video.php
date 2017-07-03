@@ -1,6 +1,5 @@
 <?php
 
-
 function bs_page_image_square_cb($post) {
     wp_nonce_field('ps_video_thumb_meta', 'ps_video_thumb_nonce');
     $video_thumb = get_post_meta($post->ID, 'video_thumb_key', true);
@@ -84,7 +83,7 @@ function ps_video_thumb_mb() {
 		if(isset($_GET['post'])) $post_id =  $_GET['post'] ? $_GET['post'] : null;
 		if(isset($_POST['post_ID']) && $post_id == null) $post_id = $_POST['post_ID'] ? $_POST['post_ID']: null;
 
-    add_meta_box('page_image_square', 'Square Image', 'bs_page_image_square_cb', 'portfolio', 'normal', 'high', null);
+    add_meta_box('page_image_square', 'Project Info', 'bs_page_image_square_cb', 'portfolio', 'normal', 'high', null);
 }
 
 add_action('add_meta_boxes', 'ps_video_thumb_mb');

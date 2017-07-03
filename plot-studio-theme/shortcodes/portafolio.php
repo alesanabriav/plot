@@ -14,6 +14,7 @@ function ps_portafolio_sc( $atts ) {
 		$item->post_image = wp_get_attachment_image_src($attachment_id, 'full')[0];
 		$item->post_categories = get_the_category($item->ID);
 		$item->post_video_thumb = get_post_meta($item->ID, 'video_thumb_key', true);
+		$item->client_name = get_post_meta($item->ID, 'client_name_key', true);
 		return $item;
 	}, $query->get_posts());
 
