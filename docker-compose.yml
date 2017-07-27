@@ -17,4 +17,3 @@ services:
       - ./plot-studio-theme:/var/www/html/wp-content/themes/plot-studio-theme
     links:
       - wpdb:mysql
-

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './portfolio_item';
+import emitter from 'tiny-emitter/instance';
 
 class Portafolio extends Component {
 
@@ -10,21 +11,33 @@ class Portafolio extends Component {
 			itemSelector: '.grid-item',
 			layoutMode: 'fitRows'
 		});
-		this.iso.layout()
+
+		this.iso.layout();
+		let hashFilter = window.location.hash.replace('#', '');
+
+		if(hashFilter.length > 0) {
+			this.filterItems(hashFilter);
+		}
+
+		emitter.on('filter-porfolio', filter => {
+			this.filterItems(filter);
+		});
 	}
 
-	filterItems = (category) => {
-		this.iso.arrange({ filter: `${category}` });
+	filterItems = (filter) => {
+		console.log(filter);
+		if(filter == 'all') {
+			filter = '*';
+		} else {
+			filter = `.${filter}`;
+		}
+		this.iso.arrange({ filter });
 	}
 
 
 	render() {
 		return (
 			<div>
-				<button onClick={this.filterItems.bind(null, '*')}>all</button>
-				<button onClick={this.filterItems.bind(null, '.animation')}>animation</button>
-				<button onClick={this.filterItems.bind(null, '.production')}>production</button>
-
 				<div className="grid">
 					{this.props.items.map(item => <Item item={item} /> )}
 				</div>

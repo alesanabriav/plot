@@ -13,7 +13,21 @@ function create_post_type() {
 			'supports' => [ 'title', 'editor', 'excerpt', 'thumbnail', 'revisions','page_image_square'],
 			'taxonomies' => [ 'category'],
       'public' => true,
-      'has_archive' => true
+      'has_archive' => false
 		]
   );
+
+  register_post_type( 'director',
+    [
+      'labels' => [
+        'name' => 'Directors',
+        'singular_name' => 'Director'
+			],
+			'supports' => [ 'title', 'editor', 'excerpt', 'thumbnail', 'revisions','page_image_square'],
+			'taxonomies' => [ 'category' ],
+      'public' => true,
+      'has_archive' => false
+		]
+  );
+
 }

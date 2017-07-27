@@ -1,8 +1,12 @@
 <?php
 
 function ps_portafolio_sc( $atts ) {
-	$at = shortcode_atts([], $atts);
+	$at = shortcode_atts([
+		'category' => ''
+	], $atts);
+
 	$query = new Wp_Query(array(
+		'category_name' => $at['category'],
     'post_type' => 'portfolio',
 		'posts_per_page' => -1,
 		'post_status' => 'publish'
@@ -19,15 +23,12 @@ function ps_portafolio_sc( $atts ) {
 	}, $query->get_posts());
 
 	$props = ['items' => $items];
-	$component = react_render( 'Portafolio', $props  );
 
 	ob_start();
 ?>
 
 	<!--ps_portafolio-->
-	<div data-props='<?php echo json_encode($props) ?>' class='ps-portafolio'>
-		<?php echo $component ?>
-	</div>
+	<div data-props='<?php echo json_encode($props) ?>' class='ps-portafolio'></div>
 	<!--/ps_portafolio-->
 
 <?php
