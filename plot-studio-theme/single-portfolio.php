@@ -52,39 +52,25 @@
           <?php
             $content_bottom_col3 = get_post_meta($post->ID, 'content_bottom_col3_key');
            if(is_array($content_bottom_col3[0]) && count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col3): ?>
-            <h4><?php echo $col3 ?></h4>
+            <?php if($i == 0): ?>
+                <h3 style="color: #fff"><?php echo $col3 ?></h3>
+            <?php else: ?>
+              <h4><?php echo $col3 ?></h4>
+            <?php endif; ?>
+
+
           <?php endforeach; endif; ?>
         </div>
       </div>
 
-      <?php
-      $cat = isset(get_the_category($post->ID)[0]) ? get_the_category($post->ID)[0]->name : '';
-      $query = new Wp_Query(array(
-          'post__not_in' => [$post->ID],
-          'post_type' => array('portfolio'),
-          'category_name' => $cat,
-          'posts_per_page' => 6,
-          'post_status' => 'publish'
-        ));
+      <?php if(is_array($stills[0])): ?>
+        <h3>STILLS</h3>
 
-      $items = array_map(function($item) {
-          $attachment_id = get_post_thumbnail_id($item->ID);
-          $item->post_thumbnail = wp_get_attachment_image_src($attachment_id, 'thumbnail')[0];
-          $item->post_image = wp_get_attachment_image_src($attachment_id, 'full')[0];
-          $item->post_categories = get_the_category($item->ID);
-          $item->post_video_thumb = get_post_meta($item->ID, 'video_thumb_key', true);
-          $item->client_name = get_post_meta($item->ID, 'client_name_key', true);
-          return $item;
-        }, $query->get_posts());
-
-        $props = ['items' => $items];
-
-      ?>
     <?php
       $stills = get_post_meta($post->ID, 'stills_key');
-      if(is_array($stills[0])): foreach($stills[0] as $still):
+     foreach($stills[0] as $still):
     ?>
-      <h3>STILLS</h3>
+
     <div class="col-lg-4 col-md-6 col-xs-12 portfolio-item__still">
       <img src="<?php echo $still; ?>" />
     </div>
