@@ -152,6 +152,8 @@ header {
         font-weight: bold;
         font-size: 16px;
         letter-spacing: 1.5px; }
+        header ul li a:first-child {
+          margin-left: 0; }
 
 .footer__info {
   float: left; }
