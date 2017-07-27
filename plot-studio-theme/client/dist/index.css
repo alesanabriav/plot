@@ -2,6 +2,10 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 body {
   background: #000;
   color: #fff;
@@ -74,7 +78,7 @@ lazyloaded {
 .portfolio-item__media {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
-  margin-bottom: 5px; }
+  margin-bottom: 15px; }
 
 .portfolio-item__media img {
   position: relative;
