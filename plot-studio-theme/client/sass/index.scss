@@ -193,6 +193,9 @@ header {
         font-weight: bold;
         font-size: 16px;
         letter-spacing: 1.5px;
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }

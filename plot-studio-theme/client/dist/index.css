@@ -154,6 +154,8 @@ header {
         font-weight: bold;
         font-size: 16px;
         letter-spacing: 1.5px; }
+        header ul li a:hover {
+          color: #fff; }
 
 .footer__info {
   float: left; }
