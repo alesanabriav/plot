@@ -198,6 +198,10 @@ header ul li a {
   color: #848484;
   font-size: 14px; }
 
+.portfolio__content-right h4 {
+  font-size: 14px;
+  font-weight: bold; }
+
 .director-item {
   position: relative; }
   .director-item__title {
