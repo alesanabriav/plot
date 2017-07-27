@@ -80,12 +80,11 @@
         $props = ['items' => $items];
 
       ?>
-      <h3>STILLS</h3>
-
     <?php
       $stills = get_post_meta($post->ID, 'stills_key');
       if(is_array($stills[0])): foreach($stills[0] as $still):
     ?>
+      <h3>STILLS</h3>
     <div class="col-lg-4 col-md-6 col-xs-12 portfolio-item__still">
       <img src="<?php echo $still; ?>" />
     </div>
