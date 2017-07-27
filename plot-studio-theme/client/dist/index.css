@@ -90,10 +90,12 @@ lazyloaded {
   width: 100%; }
 
 .portfolio-item__texts h3 {
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  font-weight: 200; }
 
 .portfolio-item__texts h4 {
-  font-size: 14px; }
+  font-size: 14px;
+  font-weight: bold; }
 
 .portfolio-item {
   padding-left: 1px;
