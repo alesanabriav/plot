@@ -59,8 +59,8 @@ class PortfolioItem extends Component {
           : ''}
         </div>
           <div className="portfolio-item__texts">
-            <h2>{item.client_name}</h2>
-            <h1>{item.post_title}</h1>
+            <h3 className="color-gray">{item.client_name}</h3>
+            <h4>{item.post_title}</h4>
           </div>
       </div>
     </div>

@@ -267,7 +267,7 @@ jQuery(document).on('click', '.remove-content-right', function(e) {
           class="uploader"
           name="stills[]"
           placeholder="Image"
-          value="<?php echo $still ?>"
+          value=""
           style="height: 35px; width: 100%;"
         />
       </p>

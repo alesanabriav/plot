@@ -77,7 +77,16 @@
 
       ?>
       <h3>STILLS</h3>
-      
+
+    <?php
+      $stills = get_post_meta($post->ID, 'stills_key');
+      foreach($stills[0] as $still):
+    ?>
+    <div class="col-lg-4 col-md-6 col-xs-12 portfolio-item__still">
+      <img src="<?php echo $still; ?>" />
+    </div>
+    <?php endforeach; ?>
+
 		<?php  endwhile; ?>
   <?php else : ?>
     <h1> <?php echo gett('404') ?> </h1>

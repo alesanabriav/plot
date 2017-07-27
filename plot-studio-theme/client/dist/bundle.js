@@ -745,7 +745,7 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(22);
+  var lowPriorityWarning = __webpack_require__(23);
   var canDefineProperty = __webpack_require__(18);
   var ReactElementValidator = __webpack_require__(38);
   var didWarnPropTypesDeprecated = false;
@@ -896,7 +896,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(27);
+var _react = __webpack_require__(22);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1000,7 +1000,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(27);
+var _react = __webpack_require__(22);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1091,12 +1091,12 @@ var PortfolioItem = function (_Component) {
             'div',
             { className: 'portfolio-item__texts' },
             _react2.default.createElement(
-              'h2',
-              null,
+              'h3',
+              { className: 'color-gray' },
               item.client_name
             ),
             _react2.default.createElement(
-              'h1',
+              'h4',
               null,
               item.post_title
             )
@@ -1337,6 +1337,17 @@ module.exports = emptyObject;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(16);
+
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -1405,17 +1416,6 @@ module.exports = lowPriorityWarning;
 
 /***/ }),
 
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(16);
-
-
-/***/ }),
-
 /***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1440,7 +1440,7 @@ var ReactNoopUpdateQueue = __webpack_require__(35);
 var canDefineProperty = __webpack_require__(18);
 var emptyObject = __webpack_require__(21);
 var invariant = __webpack_require__(1);
-var lowPriorityWarning = __webpack_require__(22);
+var lowPriorityWarning = __webpack_require__(23);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -1773,7 +1773,7 @@ var checkReactTypeSpec = __webpack_require__(62);
 var canDefineProperty = __webpack_require__(18);
 var getIteratorFn = __webpack_require__(37);
 var warning = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(22);
+var lowPriorityWarning = __webpack_require__(23);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
