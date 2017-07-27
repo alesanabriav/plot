@@ -85,7 +85,7 @@ function bs_page_image_square_cb($post) {
   <div class="stills">
     <h4>Stills</h4>
     <div class="stills-placeholder">
-      <?php if(is_array($stills) && count($stills[0]) > 0): foreach($stills[0] as $i => $still): ?>
+      <?php if(is_array($stills[0]) && count($stills[0]) > 0): foreach($stills[0] as $i => $still): ?>
 
         <div>
           <p>
