@@ -53,7 +53,7 @@
             $content_bottom_col3 = get_post_meta($post->ID, 'content_bottom_col3_key');
            if(is_array($content_bottom_col3[0]) && count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col3): ?>
             <?php if($i == 0): ?>
-                <h3 style="color: #fff"><?php echo $col3 ?></h3>
+                <h3 style="color: #fff; font-weight: bold"><?php echo $col3 ?></h3>
             <?php else: ?>
               <h4><?php echo $col3 ?></h4>
             <?php endif; ?>
