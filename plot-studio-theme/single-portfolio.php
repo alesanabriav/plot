@@ -35,21 +35,23 @@
         <div class="col-md-4">
           <?php
             $content_bottom_col1 = get_post_meta($post->ID, 'content_bottom_col1_key');
-           if(count($content_bottom_col1[0]) > 0): foreach($content_bottom_col1[0] as $i => $col1): ?>
+           if(is_array($content_bottom_col1[0]) && count($content_bottom_col1[0]) > 0): foreach($content_bottom_col1[0] as $i => $col1): ?>
             <h4><?php echo $col1 ?></h4>
           <?php endforeach; endif; ?>
         </div>
+
         <div class="col-md-4">
           <?php
             $content_bottom_col2 = get_post_meta($post->ID, 'content_bottom_col2_key');
-           if(count($content_bottom_col2[0]) > 0): foreach($content_bottom_col2[0] as $i => $col2): ?>
+           if(is_array($content_bottom_col2[0]) && count($content_bottom_col2[0]) > 0): foreach($content_bottom_col2[0] as $i => $col2): ?>
             <h4><?php echo $col2 ?></h4>
           <?php endforeach; endif; ?>
         </div>
+
         <div class="col-md-4">
           <?php
             $content_bottom_col3 = get_post_meta($post->ID, 'content_bottom_col3_key');
-           if(count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col3): ?>
+           if(is_array($content_bottom_col3[0]) && count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col3): ?>
             <h4><?php echo $col3 ?></h4>
           <?php endforeach; endif; ?>
         </div>
