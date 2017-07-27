@@ -1,9 +1,11 @@
 <?php get_header() ?>
 
-<div class="container">
+<div class="container portfolio">
   <?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-      <h1 style="padding: 20px 0"><?php the_title() ?> - <?php echo get_post_meta($post->ID, 'client_name_key', true) ?></h1>
+
+      <h1><?php the_title() ?></h1>
+      <h2 class="color-gray"><?php echo get_post_meta($post->ID, 'client_name_key', true) ?></h2>
 
       <div class="col-12">
         <?php if(!empty(get_post_meta($post->ID, 'video_url_key', true))): ?>

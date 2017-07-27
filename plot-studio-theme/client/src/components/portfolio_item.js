@@ -37,7 +37,7 @@ class PortfolioItem extends Component {
         onMouseEnter={this.playVideo}
         onMouseLeave={this.stopVideo}
         onClick={this.openItem}
-        className={`${item.post_categories.map(cat => cat.cat_name).join(' ')} portfolio-item grid-item col-lg-4 col-md-4 col-xs-6`}
+        className={`${item.post_categories.map(cat => cat.cat_name).join(' ')} portfolio-item grid-item col-lg-4 col-md-4 col-xs-12`}
         key={item.ID}>
       <div className="portfolio-item__container" style={{position: 'relative'}}>
 
