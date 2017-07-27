@@ -74,17 +74,10 @@
         }, $query->get_posts());
 
         $props = ['items' => $items];
-        $component = react_render( 'Portafolio', $props  );
 
-        ?>
-        <?php if(count($items) > 0): ?>
+      ?>
       <h3>STILLS</h3>
-        <!--ps_portafolio-->
-      	<div data-props='<?php echo json_encode($props) ?>' class='ps-portafolio'>
-      		<?php echo $component ?>
-      	</div>
-      	<!--/ps_portafolio-->
-      <?php endif; ?>
+      
 		<?php  endwhile; ?>
   <?php else : ?>
     <h1> <?php echo gett('404') ?> </h1>

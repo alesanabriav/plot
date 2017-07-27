@@ -10,7 +10,7 @@ function bs_page_image_square_cb($post) {
     $content_bottom_col1 = get_post_meta($post->ID, 'content_bottom_col1_key');
     $content_bottom_col2 = get_post_meta($post->ID, 'content_bottom_col2_key');
     $content_bottom_col3 = get_post_meta($post->ID, 'content_bottom_col3_key');
-
+    $stills = get_post_meta($post->ID, 'stills_key');
 ?>
 
 <div>
@@ -49,7 +49,7 @@ function bs_page_image_square_cb($post) {
     <h4>Content Right</h4>
 
     <div class="content-right-placeholder">
-    <?php if(count($content_right_titles[0]) > 0): foreach($content_right_titles[0] as $i => $title): ?>
+    <?php if(is_array($content_right_titles[0]) && count($content_right_titles[0]) > 0): foreach($content_right_titles[0] as $i => $title): ?>
 
       <div>
         <p>
@@ -82,10 +82,36 @@ function bs_page_image_square_cb($post) {
 
   </div>
 
+  <div class="stills">
+    <h4>Stills</h4>
+    <div class="stills-placeholder">
+      <?php if(is_array($stills) && count($stills[0]) > 0): foreach($stills[0] as $i => $still): ?>
+
+        <div>
+          <p>
+            <input
+              type="text"
+              class="uploader"
+              name="stills[]"
+              placeholder="Image"
+              value="<?php echo $still ?>"
+              style="height: 35px; width: 100%;"
+            />
+          </p>
+          <button class="button remove-stills">remove</button>
+        </div>
+      <?php endforeach; endif; ?>
+    </div>
+    <p>
+      <button class="button add-stills">Add</button>
+    </p>
+
+  </div>
+
   <div class="content-bottom-col-1">
     <h4>Content bottom col 1</h4>
     <div class="content-bottom-col-1-placeholder">
-      <?php if(count($content_bottom_col1[0]) > 0): foreach($content_bottom_col1[0] as $i => $col1): ?>
+      <?php if(is_array($content_bottom_col1[0]) && count($content_bottom_col1[0]) > 0): foreach($content_bottom_col1[0] as $i => $col1): ?>
 
         <div>
           <p>
@@ -108,7 +134,7 @@ function bs_page_image_square_cb($post) {
   <div class="content-bottom-col-2">
     <h4>Content bottom col 2</h4>
     <div class="content-bottom-col-2-placeholder">
-      <?php if(count($content_bottom_col2[0]) > 0): foreach($content_bottom_col2[0] as $i => $col1): ?>
+      <?php if(is_array($content_bottom_col2[0]) && count($content_bottom_col2[0]) > 0): foreach($content_bottom_col2[0] as $i => $col1): ?>
 
         <div>
           <p>
@@ -132,7 +158,7 @@ function bs_page_image_square_cb($post) {
   <div class="content-bottom-col-3">
     <h4>Content bottom col 3</h4>
     <div class="content-bottom-col-3-placeholder">
-      <?php if(count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col1): ?>
+      <?php if(is_array($content_bottom_col3[0]) && count($content_bottom_col3[0]) > 0): foreach($content_bottom_col3[0] as $i => $col1): ?>
 
         <div>
           <p>
@@ -175,7 +201,7 @@ const open_media_uploader_image = () => {
 
 const section = () => {
 
-	jQuery('.uploader').on('click', (e) => {
+	jQuery(document).on('click', '.uploader', (e) => {
 		open_media_uploader_image() .then(res => { jQuery(e.currentTarget).attr('value', res.url); });
 	});
 };
@@ -232,6 +258,34 @@ jQuery(document).on('click', '.remove-content-right', function(e) {
       <button class="button remove-content-bottom-col-${num}">remove</button>
   </div>
   `;
+
+  const stillTemplate = `
+    <div>
+      <p>
+        <input
+          type="text"
+          class="uploader"
+          name="stills[]"
+          placeholder="Image"
+          value="<?php echo $still ?>"
+          style="height: 35px; width: 100%;"
+        />
+      </p>
+
+
+        <button class="button remove-stills">remove</button>
+    </div>
+  `;
+
+  jQuery('.add-stills').on('click', function(e) {
+    e.preventDefault();
+    jQuery('.stills-placeholder').append(stillTemplate);
+  })
+
+  jQuery(document).on('click', '.remove-stills', function(e) {
+    e.preventDefault();
+    jQuery(this).parent().remove();
+  })
 
     jQuery('.add-content-bottom-col-1').on('click', function(e) {
       e.preventDefault();
@@ -317,6 +371,12 @@ function ps_save_video_thumb_meta($post_id) {
   update_meta_field(array(
     'field_key' => 'content_bottom_col3_key',
     'field_name' => 'content_bottom_col3',
+    'post_id' => $post_id
+  ));
+
+  update_meta_field(array(
+    'field_key' => 'stills_key',
+    'field_name' => 'stills',
     'post_id' => $post_id
   ));
 }
