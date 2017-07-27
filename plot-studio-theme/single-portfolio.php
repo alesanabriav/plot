@@ -69,8 +69,11 @@
         </div>
       </div>
 
-      <?php if(is_array($stills[0])): ?>
-        <h3>STILLS</h3>
+      <?php
+      $stills = get_post_meta($post->ID, 'stills_key');
+        if(is_array($stills[0])):
+          ?>
+        <h3 class="stills-title">STILLS</h3>
 
     <?php
       $stills = get_post_meta($post->ID, 'stills_key');
