@@ -1061,7 +1061,7 @@ var PortfolioItem = function (_Component) {
           onClick: this.openItem,
           className: item.post_categories.map(function (cat) {
             return cat.cat_name;
-          }).join(' ') + ' portfolio-item grid-item col-lg-4 col-md-6 col-xs-12',
+          }).join(' ') + ' portfolio-item grid-item col-lg-4 col-md-4 col-xs-6',
           key: item.ID },
         _react2.default.createElement(
           'div',
