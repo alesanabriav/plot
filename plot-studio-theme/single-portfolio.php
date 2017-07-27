@@ -84,12 +84,12 @@
 
     <?php
       $stills = get_post_meta($post->ID, 'stills_key');
-      foreach($stills[0] as $still):
+      if(is_array($stills[0])): foreach($stills[0] as $still):
     ?>
     <div class="col-lg-4 col-md-6 col-xs-12 portfolio-item__still">
       <img src="<?php echo $still; ?>" />
     </div>
-    <?php endforeach; ?>
+    <?php endforeach; endif; ?>
 
 		<?php  endwhile; ?>
   <?php else : ?>
