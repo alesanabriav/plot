@@ -217,7 +217,8 @@ header {
     left: 0;
     right: 0;
     margin: auto;
-    font-size: 14px; }
+    font-size: 14px;
+    font-weight: bold; }
 
 .portfolio h1 {
   font-size: 24px;
