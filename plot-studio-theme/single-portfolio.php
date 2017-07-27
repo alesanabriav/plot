@@ -36,7 +36,11 @@
           <?php
             $content_bottom_col1 = get_post_meta($post->ID, 'content_bottom_col1_key');
            if(is_array($content_bottom_col1[0]) && count($content_bottom_col1[0]) > 0): foreach($content_bottom_col1[0] as $i => $col1): ?>
-            <h4><?php echo $col1 ?></h4>
+             <?php if($i == 0): ?>
+                 <h3 style="color: #fff; font-weight: bold"><?php echo $col1 ?></h3>
+             <?php else: ?>
+               <h4><?php echo $col1 ?></h4>
+             <?php endif; ?>
           <?php endforeach; endif; ?>
         </div>
 
@@ -44,7 +48,11 @@
           <?php
             $content_bottom_col2 = get_post_meta($post->ID, 'content_bottom_col2_key');
            if(is_array($content_bottom_col2[0]) && count($content_bottom_col2[0]) > 0): foreach($content_bottom_col2[0] as $i => $col2): ?>
-            <h4><?php echo $col2 ?></h4>
+           <?php if($i == 0): ?>
+              <h3 style="color: #fff; font-weight: bold"><?php echo $col2 ?></h3>
+           <?php else: ?>
+             <h4><?php echo $col2 ?></h4>
+           <?php endif; ?>
           <?php endforeach; endif; ?>
         </div>
 
@@ -57,8 +65,6 @@
             <?php else: ?>
               <h4><?php echo $col3 ?></h4>
             <?php endif; ?>
-
-
           <?php endforeach; endif; ?>
         </div>
       </div>
