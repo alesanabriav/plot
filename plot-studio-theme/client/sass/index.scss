@@ -252,10 +252,13 @@ header {
 
 .portfolio {
   &__content-bottom {
+    h3 {
+      color: #fff;
+      font-weight: bold
+    }
+
     h4 {
-      font-weight: normal;
-      color: #848484;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
