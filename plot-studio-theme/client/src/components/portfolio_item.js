@@ -46,6 +46,7 @@ class PortfolioItem extends Component {
             data-src={item.post_thumbnail}
             data-srcset={`${item.post_thumbnail} 600w, ${item.post_image} 1200w`}
             className="lazyload blur-up"
+            onLoad={this.props.onImageLoad}
             style={this.state.play ? {opacity: 0, width: '100%', transition: 'opacity .5s'} : {opacity: 1, width: '100%', transition: 'opacity .5s'}}
           />
           {item.post_video_thumb ?

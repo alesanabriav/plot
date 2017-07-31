@@ -34,12 +34,15 @@ class Portafolio extends Component {
 		this.iso.arrange({ filter });
 	}
 
+	rebuild = () => {
+		this.iso.arrange();
+	}
 
 	render() {
 		return (
 			<div>
 				<div className="grid">
-					{this.props.items.map(item => <Item item={item} /> )}
+					{this.props.items.map(item => <Item item={item} onImageLoad={this.rebuild} /> )}
 				</div>
 			</div>
 		)

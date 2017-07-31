@@ -22495,6 +22495,8 @@ var Portafolio = function (_Component) {
 				filter = '.' + filter;
 			}
 			_this.iso.arrange({ filter: filter });
+		}, _this.rebuild = function () {
+			_this.iso.arrange();
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
@@ -22524,6 +22526,8 @@ var Portafolio = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this3 = this;
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -22531,7 +22535,7 @@ var Portafolio = function (_Component) {
 					'div',
 					{ className: 'grid' },
 					this.props.items.map(function (item) {
-						return _react2.default.createElement(_portfolio_item2.default, { item: item });
+						return _react2.default.createElement(_portfolio_item2.default, { item: item, onImageLoad: _this3.rebuild });
 					})
 				)
 			);
@@ -22629,6 +22633,7 @@ var PortfolioItem = function (_Component) {
               'data-src': item.post_thumbnail,
               'data-srcset': item.post_thumbnail + ' 600w, ' + item.post_image + ' 1200w',
               className: 'lazyload blur-up',
+              onLoad: this.props.onImageLoad,
               style: this.state.play ? { opacity: 0, width: '100%', transition: 'opacity .5s' } : { opacity: 1, width: '100%', transition: 'opacity .5s' }
             }),
             item.post_video_thumb ? _react2.default.createElement(
