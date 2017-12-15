@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import multipleRender from "react-multiple-render";
 import Portafolio from './components/portafolio';
 import Directors from './components/directors';
+import Slider from './components/slider';
 import emitter from 'tiny-emitter/instance';
 
 multipleRender(Portafolio, '.ps-portafolio');
 multipleRender(Directors, '.ps-directors');
+multipleRender(Slider, '.slider-container');
 
 [...document.querySelectorAll('li[class^="filter-"]')].forEach(function(el) {
   el.addEventListener('click', function(e) {

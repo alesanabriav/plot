@@ -4,6 +4,10 @@ add_theme_support( 'post-thumbnails' );
 //SHORTCODES
 require_once 'shortcodes/portafolio.php';
 require_once 'shortcodes/directors.php';
+require_once 'shortcodes/slider.php';
+
+//VISUALCOMPOSER
+require_once 'shortcodes/vc/slider.php';
 
 //LIBS
 require_once 'lib/post_types.php';

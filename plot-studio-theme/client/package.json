@@ -15,10 +15,13 @@
     "gulp": "gulp"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "masonry-layout": "^4.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-multiple-render": "^1.0.8",
+    "slick-carousel": "^1.8.1",
+    "styled-jsx": "^2.2.1",
     "tiny-emitter": "^2.0.0"
   },
   "devDependencies": {
@@ -41,7 +44,8 @@
     ],
     "plugins": [
       "transform-class-properties",
-      "transform-object-rest-spread"
+      "transform-object-rest-spread",
+      "styled-jsx/babel"
     ]
   }
 }

@@ -1,3 +1,5 @@
 plot-studio-theme/client/node_modules
 plot-studio-theme/vendor
 mysql
+plugins
+uploads
