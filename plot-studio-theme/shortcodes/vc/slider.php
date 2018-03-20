@@ -7,6 +7,11 @@ function slider_vc() {
 			"type" => "textfield",
 			"heading" => "Title",
 			"param_name" => "title"
+    ],
+    [
+			"type" => "textfield",
+			"heading" => "Subtitle",
+			"param_name" => "subtitle"
 		],
 		[
 			"type" => "attach_image",

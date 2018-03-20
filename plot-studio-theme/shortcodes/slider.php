@@ -18,6 +18,31 @@ function ps_slider_sc( $atts ){
 	?>
 	<section class="slider-container" data-props='<?php echo wp_json_encode($props) ?>'></section>
 
+	<style>
+		.slick-prev {
+			z-index: 1;
+			left: 4%;
+		}
+
+		.slick-next {
+			z-index: 1;
+			right: 4%;
+		}
+
+		.slick-prev:before, .slick-next:before {
+			display: none;
+		}
+
+		@media (min-width: 1024px) {
+			.slick-prev:before, .slick-next:before {
+				display: block;
+				color: #ffea00;
+				font-size: 40px;
+				opacity: 1;
+			}
+		}
+	</style>
+
 	<?php
 
 	return ob_get_clean();
